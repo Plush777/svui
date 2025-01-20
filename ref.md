@@ -7,3 +7,4 @@
 - https://stackoverflow.com/questions/74243719/how-to-change-page-title-dynamically-in-sveltekit
 - https://dev.to/dev_michael/grab-current-url-in-svelte-1np9
 - https://blacklobster.tistory.com/15
+- https://devinus.tistory.com/65
