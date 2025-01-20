@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Pretendard';
+	src: url(/fonts/PretendardGOVVariable.woff2);
+	font-display: block;
+}
+
+:root {
+	--gray1: #d7dbe0;
+	--white1: #fff;
+	--black1: #111;
+}
