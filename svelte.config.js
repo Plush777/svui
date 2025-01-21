@@ -4,7 +4,10 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: vitePreprocess(),
+	preprocess: vitePreprocess({
+		edge: false,
+		split: true
+	}),
 
 	kit: {
 		adapter: adapter(),
