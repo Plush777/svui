@@ -4,13 +4,13 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: vitePreprocess({
-		edge: false,
-		split: true
-	}),
+	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			edge: false,
+			split: true
+		}),
 		alias: {
 			$components: path.resolve('./src/lib/components'),
 			$styles: path.resolve('./src/lib/styles')
