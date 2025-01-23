@@ -70,8 +70,8 @@ html {
 	font-family: 'Pretendard', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
 	font-size: 16px;
 	color: #333;
-	/* letter-spacing: -0.5px; */
 	font-weight: 400;
+	overflow: hidden;
 }
 
 ol,
@@ -193,4 +193,37 @@ strong {
 }
 ::-webkit-scrollbar-button {
 	display: none;
+}
+
+.table-wrap {
+	width: 100%;
+}
+
+table {
+	width: 100%;
+}
+
+table.default {
+	border-top: 1px solid var(--black1);
+}
+
+table.default th,
+td {
+	height: 72px;
+	border-right: 1px solid var(--gray3);
+	border-bottom: 1px solid var(--gray3);
+	padding: 0 12px;
+}
+
+table.default th:last-child,
+table.default td:last-child {
+	border-right: 0;
+}
+
+table.default th {
+	background-color: var(--white2);
+}
+
+table.default td {
+	background-color: var(--white1);
 }

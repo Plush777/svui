@@ -56,7 +56,7 @@
 							{#each oneDepth.item as twoDepth, index}
 								{@const link = `/${oneDepth.category}/${linkReplace(twoDepth)}`}
 
-								<li class="flex items-center p-navItem">
+								<li class="flex items-center">
 									<Link path={link} isActive={link === $page.url.pathname ? 'active' : ''}
 										>{twoDepth}</Link
 									>

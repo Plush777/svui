@@ -16,12 +16,21 @@ export default {
 				'220': '220px'
 			},
 			height: {
-				nav: 'calc(100% - 72px)'
+				nav: 'calc(100% - 72px)',
+				accordion: '72px'
 			},
 			padding: {
 				mainContents: '48px 100px',
 				nav: '20px 16px',
-				navItem: '3px 8px'
+				navItem: '7px 8px',
+				accordion: '16px 12px'
+			},
+			maxWidth: {
+				accordion: '700px'
+			},
+			fontSize: {
+				accordion: '22px',
+				accordionDetails: '18px'
 			}
 		}
 	},

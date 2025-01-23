@@ -1,5 +1,7 @@
 <script lang="ts">
-	import Intro from '$pages/main/index.svelte';
+	//
 </script>
 
-<Intro />
+<div>
+	<h1>home</h1>
+</div>
