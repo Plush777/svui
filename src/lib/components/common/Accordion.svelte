@@ -1,17 +1,33 @@
 <script lang="ts">
-	let { head, details } = $props();
-
-	let open = $state(false);
 	import { slide } from 'svelte/transition';
 
-	const handleClick = () => (open = !open);
+	let { head, details, openType = 'independent', index, groupOpenIndex } = $props();
+
+	let open = $state(false);
+
+	const handleClick = () => {
+		if (openType === 'default') {
+			// If not already open, set the group's open index to this index
+			groupOpenIndex = groupOpenIndex === index ? -1 : index;
+		} else {
+			// Independent mode
+			open = !open;
+		}
+	};
+
+	// Update open state based on groupOpenIndex for default mode
+	$effect(() => {
+		if (openType === 'default') {
+			open = groupOpenIndex === index;
+		}
+	});
 </script>
 
 <div class="accordion max-w-accordion">
-	<div class="accordion-header p-accordion h-accordion flex items-center">
+	<div class="accordion-header h-accordion flex items-center">
 		<button
-			class="accordion-text text-accordion flex h-full flex-1 items-center font-semibold"
-			onclick={() => handleClick()}
+			class="accordion-text p-accordion text-accordion flex h-full flex-1 items-center font-semibold"
+			onclick={handleClick}
 		>
 			<div class="accordion-header-text accordion-text flex flex-1 items-center">
 				{#if head}
@@ -31,37 +47,3 @@
 		</div>
 	{/if}
 </div>
-
-<style>
-	.accordion-header {
-		border-bottom: 1px solid var(--gray1);
-	}
-
-	.accordion-header-text {
-		color: var(--black2);
-	}
-
-	.accordion-details {
-		color: var(--gray2);
-		border-bottom: 1px solid var(--gray1);
-	}
-
-	/* div.accordion {
-		margin: 1rem 0;
-	}
-
-	div.header {
-		display: flex;
-		width: 100%;
-	}
-
-	div.header .text {
-		flex: 1;
-		margin-right: 5px;
-	}
-
-	div.details {
-		background-color: #cecece;
-		padding: 1rem;
-	} */
-</style>

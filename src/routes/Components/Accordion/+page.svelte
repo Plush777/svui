@@ -7,72 +7,65 @@
 
 	const lastPath = getLastPath($page.url.pathname);
 
-	// interface TableColData {
-	// 	thead: string[];
-	// 	tbody: string[][];
-	// }
+	let groupOpenIndex = $state(-1);
 
-	// interface TableRowData {
-	// 	tbody: string[];
-	// }
-
-	// const data: TableColData[] = [
-	// 	{
-	// 		thead: ['#', 'First', 'Last', 'Handle'],
-	// 		tbody: [
-	// 			['Mark', 'Otto', '@mdo'],
-	// 			['Jacob', 'Thornton', '@fat'],
-	// 			['Larry the Bird', '', '@twitter']
-	// 		]
-	// 	}
-	// ];
-
-	// const data2: TableRowData[] = [
-	// 	{
-	// 		tbody: ['th1', 'td1', 'th1', 'td1']
-	// 	},
-	// 	{
-	// 		tbody: ['th1', 'td1', 'th1', 'td1']
-	// 	},
-	// 	{
-	// 		tbody: ['th1', 'td1', 'th1', 'td1']
-	// 	},
-	// 	{
-	// 		tbody: ['th1', 'td1', 'th1', 'td1']
-	// 	}
-	// ];
+	const accordions = [
+		{
+			id: 1,
+			head: () => 'Title 1',
+			details: () => 'Details 1',
+			openType: 'default'
+		},
+		{
+			id: 2,
+			head: () => 'Title 2',
+			details: () => 'Details 2',
+			openType: 'default'
+		}
+	];
 </script>
 
 <Title textClassName="text-3xl" styleClassName="" title={lastPath} />
 
-<Section title="">
+<Section title="Default">
 	{#snippet content()}
-		<Accordion>
-			{#snippet head()}
-				Title
-			{/snippet}
+		<div>
+			{#each accordions as accordion, i (accordion.id)}
+				<Accordion openType="default" {...accordion} {groupOpenIndex} index={i}>
+					{#snippet head()}
+						{accordion.head}
+					{/snippet}
 
-			{#snippet details()}
-				details
-			{/snippet}
-		</Accordion>
-		<Accordion>
-			{#snippet head()}
-				Title
-			{/snippet}
+					{#snippet details()}
+						{accordion.details}
+					{/snippet}
+				</Accordion>
+			{/each}
+		</div>
+	{/snippet}
+</Section>
 
-			{#snippet details()}
-				details
-			{/snippet}
-		</Accordion>
-		<Accordion>
-			{#snippet head()}
-				Title
-			{/snippet}
+<Section title="Multiple">
+	{#snippet content()}
+		<div>
+			<Accordion>
+				{#snippet head()}
+					Title
+				{/snippet}
 
-			{#snippet details()}
-				details
-			{/snippet}
-		</Accordion>
+				{#snippet details()}
+					details
+				{/snippet}
+			</Accordion>
+			<Accordion>
+				{#snippet head()}
+					Title
+				{/snippet}
+
+				{#snippet details()}
+					details
+				{/snippet}
+			</Accordion>
+		</div>
 	{/snippet}
 </Section>

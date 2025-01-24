@@ -12,11 +12,13 @@
 			</a>
 		</h1>
 
-		<a href="https://github.com/Plush777/svui" target="_blank">
-			<Icon width="28" height="28">
-				<SvgGithub />
-			</Icon>
-			<span class="sr-only">깃허브 새 창으로 이동</span>
-		</a>
+		<div class="flex items-center gap-x-2">
+			<a href="https://github.com/Plush777/svui" target="_blank">
+				<Icon width="28" height="28">
+					<SvgGithub />
+				</Icon>
+				<span class="sr-only">깃허브 새 창으로 이동</span>
+			</a>
+		</div>
 	</div>
 </header>
